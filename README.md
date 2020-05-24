@@ -23,11 +23,14 @@ With Docker, we can create dependecy package, rather than install via subprocess
         fh = boto3.client("firehose", "us-east-2")
         stocks = ['FB', 'SHOP', 'BYND', 'NFLX', 'PINS', 'SQ', 'TTD', 'OKTA', 'SNAP', 'DDOG']
         for stock in stocks:
-           stock_data = yfinance.Ticker(stock).history(start="2020-05-14", end="2020-05-15", interval="1m")
-           for index, row in stock_data.iterrows():
+            stock_data = yfinance.Ticker(stock).history(start="2020-05-14", end="2020-05-15", interval="1m")
+            for index, row in stock_data.iterrows():
                 data = {"high":row.High, "low":row.Low, "ts":str(index), "name":stock}
                 as_jsonstr = json.dumps(data)
                 fh.put_record(DeliveryStreamName="sta9760_delivery_stream_yin", Record={"Data": as_jsonstr.encode('utf-8')})
+                
+        return {'statusCode': 200,
+            'body': json.dumps(f'Done! Recorded: {as_jsonstr}')}
 
 ## Data Tranformer
 ![Alt text](https://github.com/AnnyYin/Streaming-Finance-Data-with-AWS-Lambda-and-Kinesis/blob/master/Screenshot/Amazon%20Kinesis%20Firehose%20-%20us-east-2.console.aws.amazon.com.png)
