@@ -5,13 +5,13 @@ Lambda URL:
 > https://mo0kje177c.execute-api.us-east-2.amazonaws.com/default/sta9760_data_collector_yin
 ![Alt text](https://github.com/AnnyYin/Streaming-Finance-Data-with-AWS-Lambda-and-Kinesis/blob/master/Screenshot/sta9760_data_collector_yin%20-%20Lambda%20-%20us-east-2.console.aws.amazon.com.png)
 
-Lambda Deployment Package
+### Lambda Deployment Package
 * To manage dependencies such as yfinance and boto, we can leverage a deployment package.
 > lambda.zip
 
 Upload this zip file on Lambda page, and test to ensure it works as expected.
 
-Lambda function for data collection
+### Lambda function for data collection
 
     import json
     import boto3    
