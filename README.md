@@ -7,9 +7,9 @@ Lambda URL:
 
 ### Lambda Deployment Package
 * To manage dependencies such as yfinance and boto, we can leverage a deployment package.
-> lambda.zip
+> https://github.com/mottaquikarim/STA9760_simple_deployment_package
 
-Upload this zip file on Lambda page, and test to ensure it works as expected.
+With Docker, we can create dependecy package, rather than install via subprocess(which doesn't work on my Lambda function). Then we can simply import packages we need in the code as below.
 
 ### Lambda function for data collection
 
