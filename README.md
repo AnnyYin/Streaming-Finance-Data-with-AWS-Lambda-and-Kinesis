@@ -37,3 +37,10 @@ With Docker, we can create dependecy package, rather than install via subprocess
 
 
 ## Data Analyzer with AWS Athena
+SQL query
+> query.sql
+
+    SELECT 
+    
+See querying results in 
+> results.csv
