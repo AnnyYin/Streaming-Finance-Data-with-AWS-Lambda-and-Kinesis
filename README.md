@@ -40,7 +40,13 @@ With Docker, we can create dependecy package, rather than install via subprocess
 SQL query
 > query.sql
 
-    SELECT 
+    SELECT  name AS Stock,
+         (hour(cast(ts AS timestamp))-4) AS Hour,
+         max(high) AS Highest_Price     #show the maximum stock price in each hour of each stock
+    FROM financedata22
+    GROUP BY  hour(cast(ts AS timestamp)), name     #show records of the same hour together
+    ORDER BY  hour(cast(ts AS timestamp)), name     #show records by the order of hour and name
     
 See querying results in 
 > results.csv
+### Visualize the result
